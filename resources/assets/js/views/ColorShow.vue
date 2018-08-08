@@ -31,9 +31,11 @@ export default {
             setTimeout( () => speakEng(this.groupEN), 1800);
         },
         clickLearning(){
+            $('#colorLearning').addClass('animated bounce');
             setTimeout( () => this.$router.push('/color/learning'), 1800);
         },
         clickExercise(){
+            $('#colorExercise').addClass('animated bounce');
             setTimeout( () => this.$router.push('/color/exercise'), 1800);
         }
     }

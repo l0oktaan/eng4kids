@@ -68128,8 +68128,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
     data: function data() {
         return {
             groupTH: 'หมวดหมู่สี',
-            groupEN: 'color',
-            color: []
+            groupEN: 'color'
+
         };
     },
 
@@ -68288,6 +68288,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         clickLearning: function clickLearning() {
             var _this2 = this;
 
+            $('#colorLearning').addClass('animated bounce');
             setTimeout(function () {
                 return _this2.$router.push('/color/learning');
             }, 1800);
@@ -68295,6 +68296,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
         clickExercise: function clickExercise() {
             var _this3 = this;
 
+            $('#colorExercise').addClass('animated bounce');
             setTimeout(function () {
                 return _this3.$router.push('/color/exercise');
             }, 1800);
@@ -68363,17 +68365,21 @@ if (false) {
 /***/ (function(module, exports, __webpack_require__) {
 
 var disposed = false
+function injectStyle (ssrContext) {
+  if (disposed) return
+  __webpack_require__(254)
+}
 var normalizeComponent = __webpack_require__(36)
 /* script */
-var __vue_script__ = null
+var __vue_script__ = __webpack_require__(253)
 /* template */
-var __vue_template__ = __webpack_require__(250)
+var __vue_template__ = __webpack_require__(256)
 /* template functional */
 var __vue_template_functional__ = false
 /* styles */
-var __vue_styles__ = null
+var __vue_styles__ = injectStyle
 /* scopeId */
-var __vue_scopeId__ = null
+var __vue_scopeId__ = "data-v-bb35b738"
 /* moduleIdentifier (server only) */
 var __vue_module_identifier__ = null
 var Component = normalizeComponent(
@@ -68406,26 +68412,7 @@ module.exports = Component.exports
 
 
 /***/ }),
-/* 250 */
-/***/ (function(module, exports, __webpack_require__) {
-
-var render = function() {
-  var _vm = this
-  var _h = _vm.$createElement
-  var _c = _vm._self._c || _h
-  return _c("div")
-}
-var staticRenderFns = []
-render._withStripped = true
-module.exports = { render: render, staticRenderFns: staticRenderFns }
-if (false) {
-  module.hot.accept()
-  if (module.hot.data) {
-    require("vue-hot-reload-api")      .rerender("data-v-bb35b738", module.exports)
-  }
-}
-
-/***/ }),
+/* 250 */,
 /* 251 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -68489,6 +68476,135 @@ if (false) {
   module.hot.accept()
   if (module.hot.data) {
     require("vue-hot-reload-api")      .rerender("data-v-473073c4", module.exports)
+  }
+}
+
+/***/ }),
+/* 253 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+
+/* harmony default export */ __webpack_exports__["default"] = ({
+    data: function data() {
+        return {
+            colors: [{
+                "id": "1",
+                "nameEN": "White",
+                "nameTH": "สีขาว"
+            }, {
+                "id": "2",
+                "nameEN": "Yellow",
+                "nameTH": "สีแหลือง"
+            }, {
+                "id": "3",
+                "nameEN": "Red",
+                "nameTH": "สีแดง"
+            }, {
+                "id": "4",
+                "nameEN": "Gray",
+                "nameTH": "สีเทา"
+            }, {
+                "id": "5",
+                "nameEN": "Purple",
+                "nameTH": "สีม่วง"
+            }, {
+                "id": "6",
+                "nameEN": "Green",
+                "nameTH": "สีเขียว"
+            }, {
+                "id": "7",
+                "nameEN": "Blue",
+                "nameTH": "สีน้ำเงิน"
+            }, {
+                "id": "8",
+                "nameEN": "Black",
+                "nameTH": "สีดำ"
+            }]
+        };
+    }
+});
+
+/***/ }),
+/* 254 */
+/***/ (function(module, exports, __webpack_require__) {
+
+// style-loader: Adds some css to the DOM by adding a <style> tag
+
+// load the styles
+var content = __webpack_require__(255);
+if(typeof content === 'string') content = [[module.i, content, '']];
+if(content.locals) module.exports = content.locals;
+// add the styles to the DOM
+var update = __webpack_require__(221)("0db53bb8", content, false, {});
+// Hot Module Replacement
+if(false) {
+ // When the styles change, update the <style> tags
+ if(!content.locals) {
+   module.hot.accept("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bb35b738\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorLearning.vue", function() {
+     var newContent = require("!!../../../../node_modules/css-loader/index.js!../../../../node_modules/vue-loader/lib/style-compiler/index.js?{\"vue\":true,\"id\":\"data-v-bb35b738\",\"scoped\":true,\"hasInlineConfig\":true}!../../../../node_modules/vue-loader/lib/selector.js?type=styles&index=0!./ColorLearning.vue");
+     if(typeof newContent === 'string') newContent = [[module.id, newContent, '']];
+     update(newContent);
+   });
+ }
+ // When the module is disposed, remove the <style> tags
+ module.hot.dispose(function() { update(); });
+}
+
+/***/ }),
+/* 255 */
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__(16)(false);
+// imports
+
+
+// module
+exports.push([module.i, "\n.color[data-v-bb35b738]{\r\n    width: 150px;\r\n    height: 150px;\n}\r\n", ""]);
+
+// exports
+
+
+/***/ }),
+/* 256 */
+/***/ (function(module, exports, __webpack_require__) {
+
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _c(
+    "div",
+    _vm._l(_vm.colors, function(color) {
+      return _c("div", {
+        key: color.id,
+        staticClass: "color",
+        style: { backgroundColor: color.nameEN }
+      })
+    })
+  )
+}
+var staticRenderFns = []
+render._withStripped = true
+module.exports = { render: render, staticRenderFns: staticRenderFns }
+if (false) {
+  module.hot.accept()
+  if (module.hot.data) {
+    require("vue-hot-reload-api")      .rerender("data-v-bb35b738", module.exports)
   }
 }
 

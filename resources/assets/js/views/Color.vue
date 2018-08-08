@@ -16,9 +16,7 @@ export default {
         return{
             groupTH: 'หมวดหมู่สี',
             groupEN: 'color',
-            color: [
-
-            ]
+            
         }
     },
     methods: {
