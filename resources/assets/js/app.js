@@ -22,12 +22,34 @@ Vue.use(BootstrapVue);
 
 import App from './views/App'
 import Home from './views/Home'
+import Color from './views/Color'
+import ColorShow from './views/ColorShow'
+import ColorLearning from './views/ColorLearning'
+import ColorExercise from './views/ColorExercise'
 const router = new VueRouter({
     mode: 'history',
     routes: [
         {
             path: '/',
             component: Home
+        },
+        {
+            path: '/color',
+            component: Color,
+            children: [
+                {
+                    path: '',
+                    component: ColorShow
+                },
+                {
+                    path: 'learning',
+                    component: ColorLearning
+                },
+                {
+                    path: 'exercise',
+                    component: ColorExercise
+                }
+            ]
         }
     ]
 });

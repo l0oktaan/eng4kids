@@ -10480,5 +10480,6 @@ a.text-dark:focus {
 body,
 html {
   font-size: 16pt;
+  height: 100%;
 }
 
