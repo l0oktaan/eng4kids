@@ -1,6 +1,6 @@
 <template>
 <div>
-    <div class="home"><h3 @click="goHome()">ต้นน้ำ - ต้นหอม</h3></div>
+    <div class="home"><h3 @click="goHome()">ต้นน้ำ - ต้นหอม</h3><lang-switch></lang-switch></div>
     <transition name="slide-right">
         <router-view></router-view>
     </transition>

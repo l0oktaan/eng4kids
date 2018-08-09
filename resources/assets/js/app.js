@@ -13,6 +13,9 @@ window.Vue = require('vue');
 import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
+import Vuex from 'vuex'
+Vue.use(Vuex);
+
 import axios from 'axios'
 import VueAxios from 'vue-axios' 
 Vue.use(VueAxios, axios)
@@ -26,8 +29,34 @@ import Color from './views/Color'
 import ColorShow from './views/ColorShow'
 import ColorLearning from './views/ColorLearning'
 import ColorExercise from './views/ColorExercise'
+
+const store = new Vuex.Store({
+    state: {
+        language: 'thai',
+        wordThai: '',
+        wordEng: ''
+    },
+    mutations: {
+        SET_LANGUAGE: (state, lang) => {
+            state.language = lang
+        },
+        SPEAK_WORD: (state, group) => {
+            let lang
+            lang = state.language
+            if (lang === 'english'){
+                responsiveVoice.speak("" + group.eng +"", "US English Female", {rate: 0.5, volume: 1});
+            }else{
+                responsiveVoice.speak("" + group.thai +"", "Thai Female", {rate: 1, volume: 1})
+            }
+            //lang === 'english' ? responsiveVoice.speak("" + eng +"", "US English Female", {rate: 0.5, volume: 1}) : responsiveVoice.speak("" + thai +"", "Thai Female", {rate: 0.8, volume: 1})
+        }
+    },
+    actions: {
+
+    }
+})
 const router = new VueRouter({
-    mode: 'history',
+    mode: 'history',    
     routes: [
         {
             path: '/',
@@ -59,10 +88,11 @@ const router = new VueRouter({
  * or customize the JavaScript scaffolding to fit your unique needs.
  */
 
-Vue.component('example-component', require('./components/ExampleComponent.vue'));
+Vue.component('LangSwitch', require('./components/LangSwitch.vue'));
 
 const app = new Vue({
     el: '#app',
+    store,
     components: { App },
     router
 });

@@ -12,31 +12,46 @@
             </div>
         </b-col>
     </b-row>   
+    
     </b-container> 
 </template>
 <script>
 export default {
     data(){
         return{
-            groupTH: 'หมวดหมู่สี',
-            groupEN: 'color',
-            color: [
-
-            ]
+            lession1TH: 'การเรียนรู้',
+            lession1EN: 'Learning',
+            lession2TH: 'แบบทดสอบ',
+            lession2EN: 'Exercise',
+            topic: [
+                {
+                    id: 1,
+                    eng: 'Learning',
+                    thai: 'การเรียนรู้'
+                },
+                {
+                    id: 2,
+                    eng: 'Exercise',
+                    thai: 'แบบทดสอบ'
+                }
+            ]      
         }
     },
     methods: {
         speakeGroup(){
-            speakThai(this.groupTH);
-            setTimeout( () => speakEng(this.groupEN), 1800);
+            //this.$store.commit('SPEAK_WORD',this.groupTH,this.groupEN);
         },
         clickLearning(){
             $('#colorLearning').addClass('animated bounce');
+            this.$store.commit('SPEAK_WORD',this.topic[0]);
+            //speakThai(this.lession1TH);
             setTimeout( () => this.$router.push('/color/learning'), 1800);
+            
         },
         clickExercise(){
             $('#colorExercise').addClass('animated bounce');
-            setTimeout( () => this.$router.push('/color/exercise'), 1800);
+            this.$store.commit('SPEAK_WORD',this.topic[1]);
+            setTimeout( () => this.$router.push('/color/exercise'), 1800);            
         }
     }
 }

@@ -1,20 +1,8 @@
 <template>
 <div class="frame">
-    <b-container>        
-        <b-row>
-            <b-col md="12">
-                <b-form-group class="text-right">
-                    <b-form-radio-group id="btnradios1"
-                        buttons
-                        button-variant="outline-primary"
-                        v-model="language"
-                        :options="options"
-                        name="radiosBtnDefault" />
-                </b-form-group>
-            </b-col>
-        </b-row>
-        <b-row align-h="center">
-            
+    <b-container>       
+        
+        <b-row align-h="center">            
             <b-col cols="4" v-for="group in groups" :key="group.id">
                 <div :id="'group' + group.id" @click="clickGroup(group)" class="mybox text-center" :style="{backgroundImage: 'url(../img/group/' + group.cover + ')'}">                    
                     
@@ -55,6 +43,7 @@
 </style>
 
 <script>
+import { mapMutations } from 'vuex'
 export default {
     data(){
         return{
@@ -91,8 +80,8 @@ export default {
     },
     methods: {
         clickGroup(group){
-            this.language == 'thai' ? speakThai(group.name) : speakEng(group.nameEN);            
-            
+            //this.language == 'thai' ? speakThai(group.name) : speakEng(group.nameEN);            
+            this.$store.commit('SPEAK_WORD',group.name, group.nameEN);
             $('#group' + group.id).addClass('animated bounce');
             this.setTransition(group.id);
             setTimeout( () => this.$router.push({ path: '/color'}), 1600);
@@ -109,6 +98,11 @@ export default {
     },
     mounted(){
         
+    },
+    computed: {
+        lang(){
+            return this.$store.state.language;
+        }
     }
 }
 </script>
