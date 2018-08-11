@@ -56,22 +56,22 @@ export default {
             groups: [
                 {
                     id: 1,
-                    name: 'หมวดหมู่สี',
-                    nameEN: 'Color',
+                    thai: 'หมวดหมู่สี',
+                    eng: 'Color',
                     cover: '1.jpg',
                     path: 'color'
                 },
                 {
                     id: 2,
-                    name: 'หมวดหมู่ตัวเลข',
-                    nameEN: 'Number',
+                    thai: 'หมวดหมู่ตัวเลข',
+                    eng: 'Number',
                     cover: '2.jpg',
                     path: 'number'
                 },
                 {
                     id: 3,
-                    name: 'อักษรภาษาอังกฤษ',
-                    nameEN: 'A B C',
+                    thai: 'อักษรภาษาอังกฤษ',
+                    eng: 'A B C',
                     cover: '3.jpg',
                     path: 'abc'
                 },
@@ -81,7 +81,7 @@ export default {
     methods: {
         clickGroup(group){
             //this.language == 'thai' ? speakThai(group.name) : speakEng(group.nameEN);            
-            this.$store.commit('SPEAK_WORD',group.name, group.nameEN);
+            this.$store.commit('SPEAK_WORD',group);
             $('#group' + group.id).addClass('animated bounce');
             this.setTransition(group.id);
             setTimeout( () => this.$router.push({ path: '/color'}), 1600);
