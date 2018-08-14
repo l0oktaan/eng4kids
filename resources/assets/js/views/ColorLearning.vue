@@ -117,7 +117,7 @@ export default {
             this.toggleClick(index)
             setTimeout(() => {
                 this.toggleClick(index);
-                $('#color' + id).removeClass('animated bounce');
+                $('#color'+id).removeClass('animated bounce');
             },3000);
         },
         toggleClick(index){

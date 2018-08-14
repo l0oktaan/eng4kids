@@ -1,3 +1,115 @@
 <template>
-    
+    <div class="container">        
+        <div class="row">
+            <div class="col">
+                <my-slide :data="questions"></my-slide>
+            </div>
+        </div>
+    </div>
+               
+                
+            
 </template>
+<style scoped>
+.toHide{
+    visibility: hidden;
+}
+</style>
+
+<script>
+
+   
+
+
+export default {
+    data(){
+        return{
+            next: '<i class="fas fa-arrow-alt-circle-right fa-2x"></i>',
+            previous: '<i class="fas fa-arrow-alt-circle-left fa-2x"></i>',
+            slide: 0,
+            sliding: null,
+            questions: [
+                {
+                    "id": 1,
+                    "thai": "สีขาว",
+                    "eng": "white",
+                    "choices": ["orange","gray","white","brown"]
+                },
+                {
+                    "id": 2,
+                    "thai": "สีเทา",
+                    "eng": "gray",
+                    "choices": ["gray","brown","purple","blue"]
+                },
+                {
+                    "id": 3,
+                    "thai": "สีเหลือง",
+                    "eng": "yellow",
+                    "choices": ["green","yellow","blue","black"]
+                },
+                {
+                    "id": 4,
+                    "thai": "สีส้ม",
+                    "eng": "orange",
+                    "choices": ["purple","green","red","orange"]
+                },
+                {
+                    "id": 5,
+                    "thai": "สีแดง",
+                    "eng": "red",
+                    "choices": ["red","brown","purple","blue"]
+                },
+                {
+                    "id": 6,
+                    "thai": "สีน้ำตาล",
+                    "eng": "brown",
+                    "choices": ["green","white","brown","blue"]
+                },
+                {
+                    "id": 7,
+                    "thai": "สีม่วง",
+                    "eng": "purple",
+                    "choices": ["purple","yellow","green","orange"]
+                },
+                {
+                    "id": 8,
+                    "thai": "สีเขียว",
+                    "eng": "green",
+                    "choices": ["red","blue","black","green"]
+                },
+                {
+                    "id": 9,
+                    "thai": "สีน้ำเงิน",
+                    "eng": "blue",
+                    "choices": ["orange","purple","blue","yellow"]
+                },
+                {
+                    "id": 10,
+                    "thai": "สีดำ",
+                    "eng": "black",
+                    "choices": ["yellow","black","brown","green"]
+                }                
+            ]
+        }
+    },
+    methods: {
+        onSlideStart (slide) {
+        this.sliding = true
+        },
+        onSlideEnd (slide) {
+        this.sliding = false
+        },
+        handleSlideClick(dataset){
+            console.log(dataset.index, dataset.name)
+        }
+    },
+    watch: {
+        slide(val){
+
+            if (val===this.questions.length-1){
+                $('.carousel-control-next').addClass("toHide");
+            }
+        }
+    }
+}
+</script>

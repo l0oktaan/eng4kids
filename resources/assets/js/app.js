@@ -23,12 +23,18 @@ Vue.use(VueAxios, axios)
 import BootstrapVue from 'bootstrap-vue'
 Vue.use(BootstrapVue);
 
+import VueCarousel from 'vue-carousel'; 
+Vue.use(VueCarousel);
+
 import App from './views/App'
 import Home from './views/Home'
 import Color from './views/Color'
 import ColorShow from './views/ColorShow'
 import ColorLearning from './views/ColorLearning'
 import ColorExercise from './views/ColorExercise'
+
+
+
 
 const store = new Vuex.Store({
     state: {
@@ -44,7 +50,7 @@ const store = new Vuex.Store({
             let lang
             lang = state.language
             if (lang === 'english'){
-                responsiveVoice.speak("" + group.eng +"", "US English Female", {rate: 0.5, volume: 1});
+                responsiveVoice.speak("" + group.eng +"", "US English Female", {rate: 0.6, volume: 1});
             }else{
                 responsiveVoice.speak("" + group.thai +"", "Thai Female", {rate: 1, volume: 1})
             }
@@ -89,6 +95,7 @@ const router = new VueRouter({
  */
 
 Vue.component('LangSwitch', require('./components/LangSwitch.vue'));
+Vue.component('MySlide', require('./components/MySlide.vue'));
 
 const app = new Vue({
     el: '#app',
