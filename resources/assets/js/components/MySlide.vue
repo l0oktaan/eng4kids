@@ -1,7 +1,7 @@
 <template>
     <div class="container-fluid">
         <div class="row">
-            <div class="col">
+            <div class="col-1">
                 <button type="button" 
                     class="btn btn-outline-primary" 
                     :disabled="ifFirst()"
@@ -27,7 +27,7 @@
                     
                 </div>
             </div>
-            <div class="col">
+            <div class="col-1">
                 <button type="button" 
                     class="btn btn-outline-primary" 
                     :disabled="ifLast()"
